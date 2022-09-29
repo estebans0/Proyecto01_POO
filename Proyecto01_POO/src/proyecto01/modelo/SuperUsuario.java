@@ -10,6 +10,7 @@ public class SuperUsuario extends Usuario {
         nombre = "SuperUsuario";
         id = "SU0";
         contrasenna = "1234";
+        //tqm
     }
 
     public void setNombre(String nombre) {
