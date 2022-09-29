@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+package proyecto01.modelo;
 
 
 import java.util.ArrayList;
@@ -107,38 +104,4 @@ public class Area {
         }
         return null;
     }
-    
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.codigo);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Area other = (Area) obj;
-        return Objects.equals(this.codigo, other.codigo);
-    }
-
-    @Override
-    public String toString() {
-        return "Area{" + "Codigo: " + codigo 
-                + ", Nombre: " + nombre 
-                + ", Descripcion: " + descripcion 
-                + ", Nivel: " + nivel 
-                + ", Elementos: " + mostrarElementos() + '}';
-    }
-    
-    
 }
