@@ -2,6 +2,7 @@ package proyecto01.modelo.Areas;
 import java.util.Objects;
 
 import proyecto01.modelo.Elementos.Elemento;
+import proyecto01.modelo.Elementos.EstadoElemento;
 import proyecto01.modelo.Elementos.ListaComponentes;
 import proyecto01.modelo.Elementos.ListaElementos;
 /**
@@ -71,8 +72,8 @@ public class Area {
         elementos.agregarElemento(elem);
     }
     
-    public void agregarElemento(String codigo, String nombre, String descrip, ListaComponentes com, String ubic){
-        elementos.agregarElemento(codigo, nombre, descrip, com, ubic);
+    public void agregarElemento(String codigo, String nombre, String descrip, EstadoElemento estado, ListaComponentes com, String ubic){
+        elementos.agregarElemento(codigo, nombre, descrip,estado, com, ubic);
     }
     
     public boolean eliminarElemento(String codigo){

@@ -10,6 +10,7 @@ import proyecto01.modelo.Usuario;
 import proyecto01.modelo.Areas.NivelPiso;
 import proyecto01.modelo.Elementos.ComponenteElemento;
 import proyecto01.modelo.Elementos.Elemento;
+import proyecto01.modelo.Elementos.EstadoElemento;
 import proyecto01.modelo.Elementos.ListaComponentes;
 import proyecto01.control.Controlador;
 import java.util.Random;
@@ -48,7 +49,7 @@ public class Proyecto01_POO {
         ComponenteElemento c = new ComponenteElemento("Componente Elemento prueba", "CEA", "ubicado en areaPrueba");
         ListaComponentes lc = new ListaComponentes();
         lc.agregarComponente(c);
-        control.agregarElementoArea("AP",new Elemento("ApE", "ElementPrueba", "Elemento de prueba",lc, "Ubicado en AreaPrueba") );
+        control.agregarElementoArea("AP",new Elemento("ApE", "ElementPrueba", "Elemento de prueba",EstadoElemento.Aceptable,lc, "Ubicado en AreaPrueba") );
         
          //System.out.println(control.mostrarAreas());
          System.out.println(control.mostrarElementos());
