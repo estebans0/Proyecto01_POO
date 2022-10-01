@@ -65,5 +65,33 @@ public class ListaElementos {
         }
         return elems;    
     }
+    
+    public ArrayList<Elemento> elementosEstadoAceptable(){
+        ArrayList<Elemento> aceptables = new  ArrayList<Elemento>();
+        for(Elemento elem : lista){
+            if (elem.getEstado() == EstadoElemento.Aceptable){
+                aceptables.add(elem);
+            }
+        }
+        return aceptables;
+    }
+    
+    public ArrayList<Elemento> elementosEstadoDañoMedio(){
+        ArrayList<Elemento> medios = new  ArrayList<Elemento>();
+        for(Elemento elem : lista){
+            if (elem.getEstado() == EstadoElemento.DañosMedios){
+                medios.add(elem);
+            }
+        }
+        return medios;
+    }
+    public ArrayList<Elemento> elementosEstadoDañoImportante(){
+        ArrayList<Elemento> importantes = new  ArrayList<Elemento>();
+        for(Elemento elem : lista){
+            if (elem.getEstado() == EstadoElemento.DañosImportantes){
+                importantes.add(elem);
+            }
+        }
+        return importantes;
+    }
 }
-

@@ -1,4 +1,5 @@
 package proyecto01.modelo.Areas;
+import java.util.ArrayList;
 import java.util.Objects;
 
 import proyecto01.modelo.Elementos.Elemento;
@@ -72,7 +73,7 @@ public class Area {
         elementos.agregarElemento(elem);
     }
     
-    public void agregarElemento(String codigo, String nombre, String descrip, EstadoElemento estado, ListaComponentes com, String ubic){
+    public void agregarElemento(String codigo, String nombre, String descrip, EstadoElemento estado,ListaComponentes com, String ubic){
         elementos.agregarElemento(codigo, nombre, descrip,estado, com, ubic);
     }
     
@@ -91,6 +92,17 @@ public class Area {
         return elementos.consultarElementoe(codigo);
     }
     
+   public ArrayList<Elemento> elementosEstadoAceptable(){
+       return elementos.elementosEstadoAceptable();
+   }
+   
+   public ArrayList<Elemento> elementosEstadoDañoMedio(){
+       return elementos.elementosEstadoDañoMedio();
+   }
+   
+   public ArrayList<Elemento> elementosEstadoDañoImportante(){
+       return elementos.elementosEstadoDañoImportante();
+   }
 
     @Override
     public int hashCode() {

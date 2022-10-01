@@ -76,7 +76,7 @@ public class ListaAreas {
         if(!consultarElemento(codigo, codArea)){
             Area a = consultarAreaa(codArea);
             if(a != null){
-                a.agregarElemento(new Elemento(codigo, nombre, descripcion, estado, componentes, ubicacionGeneral));
+                a.agregarElemento(new Elemento(codigo, nombre, descripcion,estado, componentes, ubicacionGeneral));
                 return true;
             }
         }
@@ -118,4 +118,30 @@ public class ListaAreas {
         }
         return elems;
     }
+    public ArrayList<Elemento> elementosEstadoAceptable(){
+        ArrayList<Elemento> aceptables = new  ArrayList<Elemento>();
+        for(Area area :lista){
+            if(!area.elementosEstadoAceptable().isEmpty())
+                aceptables.addAll(area.elementosEstadoAceptable());
+        }
+        return aceptables;
+    }
+    public ArrayList<Elemento> elementosEstadoDañoMedio(){
+        ArrayList<Elemento> medios = new  ArrayList<Elemento>();
+        for(Area area :lista){
+            if(!area.elementosEstadoAceptable().isEmpty())
+                medios.addAll(area.elementosEstadoDañoMedio());
+        }
+        return medios;
+    }
+    public ArrayList<Elemento> elementosEstadoDañoImportante(){
+        ArrayList<Elemento> importante = new  ArrayList<Elemento>();
+        for(Area area :lista){
+            if(!area.elementosEstadoAceptable().isEmpty())
+                importante.addAll(area.elementosEstadoDañoImportante());
+        }
+        return importante;
+    }
+        
+    
 }

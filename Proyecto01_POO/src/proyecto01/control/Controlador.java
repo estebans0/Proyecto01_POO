@@ -108,9 +108,33 @@ public class Controlador {
     public String mostrarAreas(){
         return areas.mostrarAreas();
     }
-
-        
+   
     public String mostrarElementos(){
         return areas.mostrarElementos();
+    }
+    public String areasElementosAceptables(){
+        String aceptables = "ELEMENTOS ACEPTABLES DE TODAS LAS AREAS"+"\n";
+        for(int i =0; i<areas.cantidadAreas(); i++){
+            Elemento elemActual = areas.elementosEstadoAceptable().get(i);
+            aceptables += elemActual.toString();
+        }
+        return aceptables;
+    }
+     public String areasElementosDañosMedios(){
+        String medios = "ELEMENTOS CON DAÑOS MEDIOS DE TODAS LAS AREAS"+"\n";
+        for(int i =0; i<areas.cantidadAreas(); i++){
+            Elemento elemActual = areas.elementosEstadoDañoMedio().get(i);
+            medios += elemActual.toString();
+        }
+        return medios;
+    }
+    
+    public String areasElementosDañosImportantes(){
+        String importantes = "ELEMENTOS CON DAÑOS IMPORTANTES DE TODAS LAS AREAS"+"\n";
+        for(int i =0; i<areas.cantidadAreas(); i++){
+            Elemento elemActual = areas.elementosEstadoDañoImportante().get(i);
+            importantes += elemActual.toString();
+        }
+        return importantes;
     }
 }
