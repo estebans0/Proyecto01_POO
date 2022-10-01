@@ -4,6 +4,8 @@ package proyecto01.modelo.Areas;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import proyecto01.modelo.Elementos.Elemento;
+
 /**
  *
  * @author Melissa Carvajal Ch
@@ -20,6 +22,7 @@ public class Area {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.nivel = nivel;
+        elementos = new ArrayList<Elemento>();
     }
 
     public String getCodigo() {
@@ -104,4 +107,39 @@ public class Area {
         }
         return null;
     }
+    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 17 * hash + Objects.hashCode(this.codigo);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Area other = (Area) obj;
+        return Objects.equals(this.codigo, other.codigo);
+    }
+
+    @Override
+    public String toString() {
+        return "Area{" + "\n"
+                + " Codigo: " + codigo  +"\n"
+                + " Nombre: " + nombre +"\n"
+                + " Descripcion: " + descripcion +"\n"
+                + " Nivel: " + nivel +"\n"
+                + " Elementos: " + mostrarElementos() + '}'+"\n";
+    }
+    
+    
 }

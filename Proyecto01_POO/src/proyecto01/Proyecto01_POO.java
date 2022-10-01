@@ -7,6 +7,10 @@ package proyecto01;
 
 import proyecto01.control.ListaUsuarios;
 import proyecto01.modelo.Usuario;
+import proyecto01.modelo.Areas.NivelPiso;
+import proyecto01.modelo.Elementos.ComponenteElemento;
+import proyecto01.modelo.Elementos.Elemento;
+import proyecto01.modelo.Elementos.ListaComponentes;
 import proyecto01.control.Controlador;
 import java.util.Random;
 
@@ -38,5 +42,14 @@ public class Proyecto01_POO {
         ListaUsuarios listaUsuarios = control.getUsuarios(); // Creando la lista de usuarios
         System.out.println("Lista de usuarios generada: \n"+listaUsuarios.mostrarUsuarios()); // Mostrando el contenido de la lista
         
+
+
+        control.agregarArea("AP", "AreaPruba", "Esta es una area de prueba", NivelPiso.Primer);
+       ComponenteElemento c = new ComponenteElemento("Componente Elemento prueba", "CEA");
+       ListaComponentes lc = new ListaComponentes();
+       lc.agregarComponente(c);
+       control.agregarElementoArea("AP",new Elemento("ApE", "ElementPrueba", "Elemento de prueba",lc, "Ubicado en AreaPrueba") );
+       
+        System.out.println(control.mostrarAreas());
     }
 }

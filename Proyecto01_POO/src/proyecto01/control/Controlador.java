@@ -6,6 +6,10 @@
 package proyecto01.control;
 
 import proyecto01.modelo.Usuario;
+import proyecto01.modelo.Areas.Area;
+import proyecto01.modelo.Areas.NivelPiso;
+import proyecto01.modelo.Elementos.Elemento;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -16,9 +20,11 @@ import java.util.Collections;
 public class Controlador {
     
     private ListaUsuarios usuarios;
+    private ListaAreas areas;
 
     public Controlador() {
         usuarios = new ListaUsuarios();
+        areas = new ListaAreas(); 
     }
 
     public ListaUsuarios getUsuarios() {
@@ -46,6 +52,61 @@ public class Controlador {
             return usuarios.modificarUsuario(elUsuario);
         }
         return false;
+    }
+
+    public ListaAreas getAreas() {
+        return areas;
+    }
+
+    public void setAreas(ListaAreas areas) {
+        this.areas = areas;
+    }
+    
+    public Area consultarArea(String codigo){
+        for (int i =0; i< areas.cantidadAreas(); i++){
+            Area a = areas.consultarAreaa(codigo);
+            if (a != null && a.getCodigo().equalsIgnoreCase(codigo))
+                return a;
+        }
+        return null;
+    }
+    
+    public boolean agregarArea( String codigo, String nombre, String descripcion, NivelPiso nivel){
+        Area a = new Area(codigo, nombre, descripcion, nivel);
+        if(!areas.consultarArea(codigo)){
+            areas.agregarArea(a);
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean agregarElementoArea(String codigo, Elemento e){
+        Area a = areas.consultarAreaa(codigo);
+        if(a!= null){
+            a.agregarElemento(e);
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean consultarElementoArea(String codArea, String codEle){
+        Area a = areas.consultarAreaa(codArea);
+        if (a != null){
+           return a.consultarElemento(codEle);
+        }
+        return false;
+    }
+    
+    public Elemento consultarElementoeArea(String codArea, String codEle){
+        Area a = areas.consultarAreaa(codArea);
+        if (a != null){
+           return a.consultarElementoe(codEle);
+        }
+        return null;
+    }
+    
+    public String mostrarAreas(){
+        return areas.mostrarAreas();
     }
 
 }
