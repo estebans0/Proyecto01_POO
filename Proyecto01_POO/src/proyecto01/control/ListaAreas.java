@@ -7,6 +7,10 @@ import proyecto01.modelo.Areas.NivelPiso;
 import proyecto01.modelo.Elementos.Elemento;
 import proyecto01.modelo.Elementos.ListaComponentes;
 
+/**
+ *
+ * @author Melissa Carvajal Ch
+ */
 public class ListaAreas {
     private ArrayList<Area> lista;
 
@@ -98,13 +102,6 @@ public class ListaAreas {
         return false;
     }
     
-    public ArrayList<Area> areaEncargado(String codEncarg){
-        ArrayList ae = new ArrayList();
-        for(Area area: lista){
-        }
-         return ae;   
-    }
-    
     public String mostrarAreas(){
         String a = "";
         for(int i = 0; i<lista.size();i++){
@@ -112,5 +109,12 @@ public class ListaAreas {
             a += areaActual.toString();
         }
         return a;
+    }
+    public String mostrarElementos(){
+        String elems="";
+        for(Area area: lista){
+            elems += area.mostrarElementos();
+        }
+        return elems;
     }
 }

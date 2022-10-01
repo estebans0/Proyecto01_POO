@@ -1,20 +1,19 @@
 package proyecto01.modelo.Elementos;
-
-public class ComponenteElemento extends Elemento {
+/**
+ *
+ * @author Melissa Carvajal Ch
+ */
+public class ComponenteElemento {
     private String descripcion;
     private String codigo;
+    private String ubicacion;
 
-    
-    public ComponenteElemento (){
-        super();
-    }
-    public ComponenteElemento(String codigo, String descripcion) {
-        super();
+    public ComponenteElemento(String descripcion, String codigo, String ubicacion) {
         this.descripcion = descripcion;
         this.codigo = codigo;
+        this.ubicacion = ubicacion;
     }
 
-    @Override
     public String getDescripcion() {
         return descripcion;
     }
@@ -31,15 +30,22 @@ public class ComponenteElemento extends Elemento {
         this.codigo = codigo;
     }
 
-    public String getUbicacionGeneral() {
-        return super.ubicacionGeneral;
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
     @Override
     public String toString() {
-        return "ComponenteElemento{" + "\n"
-                + "descripcion=" + descripcion +"\n"
-                + ", codigo=" + codigo + '}'+"\n";
+        return "Componente del Elemento" + "\n"
+                + "Descripcion: " + descripcion + "\n"
+                + "Codigo:" + codigo + "\n"
+                + "Ubicaion: " + ubicacion + "\n";
     }
+
+
     
 }

@@ -109,4 +109,8 @@ public class Controlador {
         return areas.mostrarAreas();
     }
 
+        
+    public String mostrarElementos(){
+        return areas.mostrarElementos();
+    }
 }

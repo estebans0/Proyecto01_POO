@@ -34,22 +34,23 @@ public class Proyecto01_POO {
         // Definiendo el controlador
         control = new Controlador();
         
-        //Creando y poblando una lista de usuarios
+/*         //Creando y poblando una lista de usuarios
         for (int i = 1; i <= 10; i++) {
             String nombre = generarNombres();
             control.agregarUsuario(i*10, nombre, nombre+"@gmail.com", "CONTRASEÑA"); //Estaba en rojo y ya vi cual era el erro
         }
         ListaUsuarios listaUsuarios = control.getUsuarios(); // Creando la lista de usuarios
-        System.out.println("Lista de usuarios generada: \n"+listaUsuarios.mostrarUsuarios()); // Mostrando el contenido de la lista
+        System.out.println("Lista de usuarios generada: \n"+listaUsuarios.mostrarUsuarios()); // Mostrando el contenido de la lista */
         
 
 
         control.agregarArea("AP", "AreaPruba", "Esta es una area de prueba", NivelPiso.Primer);
-       ComponenteElemento c = new ComponenteElemento("Componente Elemento prueba", "CEA");
-       ListaComponentes lc = new ListaComponentes();
-       lc.agregarComponente(c);
-       control.agregarElementoArea("AP",new Elemento("ApE", "ElementPrueba", "Elemento de prueba",lc, "Ubicado en AreaPrueba") );
-       
-        System.out.println(control.mostrarAreas());
+        ComponenteElemento c = new ComponenteElemento("Componente Elemento prueba", "CEA", "ubicado en areaPrueba");
+        ListaComponentes lc = new ListaComponentes();
+        lc.agregarComponente(c);
+        control.agregarElementoArea("AP",new Elemento("ApE", "ElementPrueba", "Elemento de prueba",lc, "Ubicado en AreaPrueba") );
+        
+         //System.out.println(control.mostrarAreas());
+         System.out.println(control.mostrarElementos());
     }
 }

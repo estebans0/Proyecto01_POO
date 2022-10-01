@@ -32,7 +32,7 @@ public class ListaComponentes {
         for (ComponenteElemento unComponente: lista){
             comps += "  Codigo: "+unComponente.getCodigo()+"\n"
                     + "  Descripcion: "+ unComponente.getDescripcion()+"\n"
-                    + "  Ubicacion General: "+ unComponente.getUbicacionGeneral()+"\n"
+                    + "  Ubicacion General: "+ unComponente.getUbicacion()+"\n"
                     +"\n";
         }    
         return comps;

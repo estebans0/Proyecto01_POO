@@ -1,11 +1,9 @@
 package proyecto01.modelo.Areas;
-
-
-import java.util.ArrayList;
 import java.util.Objects;
 
 import proyecto01.modelo.Elementos.Elemento;
-
+import proyecto01.modelo.Elementos.ListaComponentes;
+import proyecto01.modelo.Elementos.ListaElementos;
 /**
  *
  * @author Melissa Carvajal Ch
@@ -15,14 +13,14 @@ public class Area {
     private String nombre;
     private String descripcion;
     private NivelPiso nivel;
-    private  ArrayList<Elemento> elementos;
+    private  ListaElementos elementos;
 
     public Area(String codigo,String nombre, String descripcion, NivelPiso nivel) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.nivel = nivel;
-        elementos = new ArrayList<Elemento>();
+        elementos = new ListaElementos();
     }
 
     public String getCodigo() {
@@ -57,55 +55,39 @@ public class Area {
         this.nivel = nivel;
     }
 
-    public ArrayList<Elemento> getElementos() {
+    public ListaElementos getElementos() {
         return elementos;
     }
 
-    public void setElementos(ArrayList<Elemento> elementos) {
+    public void setElementos(ListaElementos elementos) {
         this.elementos = elementos;
     }
     
     public String mostrarElementos(){
-        String e = "";
-        for(int i = 0; i < elementos.size(); i++){
-            Elemento elementoActual = elementos.get(i);
-            e += elementoActual.toString();
-        }
-        return e;
+        return elementos.mostrarElementos();
     }
     
     public void agregarElemento(Elemento elem){
-        elementos.add(elem);
+        elementos.agregarElemento(elem);
+    }
+    
+    public void agregarElemento(String codigo, String nombre, String descrip, ListaComponentes com, String ubic){
+        elementos.agregarElemento(codigo, nombre, descrip, com, ubic);
     }
     
     public boolean eliminarElemento(String codigo){
-        for(int i = 0; i < elementos.size(); i++){
-            Elemento elementoActual = elementos.get(i);
-            if (elementoActual.getCodigo().equals(codigo)){
-               elementos.remove(i);
-               return true;
-            }
+        if(elementos.consultarElemento(codigo)){
+            elementos.eliminarElemento(codigo);
+            return true;
         }
         return false;
     }
     public boolean consultarElemento(String codigo){
-        for(int i = 0; i < elementos.size(); i++){
-            Elemento elementoActual = elementos.get(i);
-            if (elementoActual.getCodigo().equals(codigo)){
-                return true;
-            } 
-        }
-        return false;
+        return elementos.consultarElemento(codigo);
     }
     
     public Elemento consultarElementoe(String codigo){
-        for(int i = 0; i < elementos.size(); i++){
-            Elemento elementoActual = elementos.get(i);
-            if (elementoActual.getCodigo().equals(codigo)){
-                return elementoActual;
-            } 
-        }
-        return null;
+        return elementos.consultarElementoe(codigo);
     }
     
 
@@ -138,7 +120,7 @@ public class Area {
                 + " Nombre: " + nombre +"\n"
                 + " Descripcion: " + descripcion +"\n"
                 + " Nivel: " + nivel +"\n"
-                + " Elementos: " + mostrarElementos() + '}'+"\n";
+                + " Elementos: " + mostrarElementos() + '}';
     }
     
     
