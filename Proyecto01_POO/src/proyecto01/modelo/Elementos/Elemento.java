@@ -2,19 +2,25 @@ package proyecto01.modelo.Elementos;
 
 import java.util.Objects;
 
+/**
+ *
+ * @author Melissa Carvajal Ch
+ */
 public class Elemento {
-    protected String codigo;
+    private String codigo;
     private String nombre;
     private String descripcion;
+    private EstadoElemento estado;
     private ListaComponentes componentes;
-    protected String ubicacionGeneral;
-
+    private String ubicacionGeneral;
+    
     public Elemento(){}
     
-    public Elemento(String codigo,String nombre, String descripcion, ListaComponentes componentes, String ubicacionGeneral) {
+    public Elemento(String codigo,String nombre, String descripcion, EstadoElemento estado, ListaComponentes componentes, String ubicacionGeneral) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.estado = estado; 
         this.componentes = componentes;
         this.ubicacionGeneral = ubicacionGeneral;
     }
@@ -43,6 +49,14 @@ public class Elemento {
         this.descripcion = descripcion;
     }
 
+    public EstadoElemento getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoElemento estado) {
+        this.estado = estado;
+    }
+
     public ListaComponentes getComponentes() {
         return componentes;
     }
@@ -64,10 +78,10 @@ public class Elemento {
 
     @Override
     public String toString() {
-        return "Elemento{" +"\n"
-                + "     Codigo: " + codigo +"\n"
+        return "\n" + "     Codigo: " + codigo +"\n"
                 + "     Nombre: "+ nombre +"\n"
                 + "     Descripcion: " + descripcion +"\n"
+                + "     Estado: " + estado +"\n"
                 + "     Componentes:" + componentes.toString() +"\n"
                 + "     UbicacionGeneral:"  + ubicacionGeneral + '}'
                 +"\n";

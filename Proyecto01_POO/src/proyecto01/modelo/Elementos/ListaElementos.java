@@ -32,9 +32,9 @@ public class ListaElementos {
         return null;
     }
     
-    public boolean agregarElemento(String cod, String nombre,String descripcion, ListaComponentes componentes, String ubicacionGeneral){
+    public boolean agregarElemento(String cod, String nombre,String descripcion, EstadoElemento estado, ListaComponentes componentes, String ubicacionGeneral){
         if (!consultarElemento(cod)){
-             lista.add(new Elemento(cod,nombre, descripcion, componentes, ubicacionGeneral));
+             lista.add(new Elemento(cod,nombre, descripcion, estado, componentes, ubicacionGeneral));
             return true;
         }
        return false;

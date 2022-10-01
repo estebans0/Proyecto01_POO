@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import proyecto01.modelo.Areas.Area;
 import proyecto01.modelo.Areas.NivelPiso;
 import proyecto01.modelo.Elementos.Elemento;
+import proyecto01.modelo.Elementos.EstadoElemento;
 import proyecto01.modelo.Elementos.ListaComponentes;
 
 /**
@@ -71,11 +72,11 @@ public class ListaAreas {
     }    
     
     public boolean agregarElemento(String codigo,String nombre, String descripcion,
-            ListaComponentes componentes, String ubicacionGeneral, String codArea){
+           EstadoElemento estado, ListaComponentes componentes, String ubicacionGeneral, String codArea){
         if(!consultarElemento(codigo, codArea)){
             Area a = consultarAreaa(codArea);
             if(a != null){
-                a.agregarElemento(new Elemento(codigo, nombre, descripcion, componentes, ubicacionGeneral));
+                a.agregarElemento(new Elemento(codigo, nombre, descripcion, estado, componentes, ubicacionGeneral));
                 return true;
             }
         }
