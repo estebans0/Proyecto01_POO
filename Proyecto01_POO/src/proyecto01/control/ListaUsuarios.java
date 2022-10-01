@@ -26,11 +26,11 @@ public class ListaUsuarios {
         return true;
     }
     
-    public boolean consultarExisteUsuario(int id){
+    public boolean consultarExisteUsuario(String id){
         int pos = 0;
         while (pos < lista.size()){
             Usuario usuarioActual = lista.get(pos);
-            if (usuarioActual.getId() == id)
+            if (usuarioActual.getId().equalsIgnoreCase(id)) 
                 return true;
             else
                 pos += 1;
@@ -38,9 +38,9 @@ public class ListaUsuarios {
         return false;
     }
     
-    public Usuario consultarUsuario(int id){
+    public Usuario consultarUsuario(String id){
         for (Usuario usuario : lista) 
-            if (usuario.getId() == id)
+            if (usuario.getId().equalsIgnoreCase(id)) //Estaba en rojo y ya vi cual era el erro ;D
                 return usuario;
         return null;    
     }
@@ -56,7 +56,7 @@ public class ListaUsuarios {
         return false;
     }
     
-    public boolean eliminarUsuario(int id){
+    public boolean eliminarUsuario(String id){
             Usuario unUsuario = consultarUsuario(id);
         if (unUsuario != null){
             lista.remove(unUsuario);

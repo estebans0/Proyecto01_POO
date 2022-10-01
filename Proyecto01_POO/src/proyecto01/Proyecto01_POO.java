@@ -37,7 +37,7 @@ public class Proyecto01_POO {
         //Creando y poblando una lista de usuarios
         for (int i = 1; i <= 10; i++) {
             String nombre = generarNombres();
-            control.agregarUsuario(i*10, nombre, nombre+"@gmail.com");
+            control.agregarUsuario(i*10, nombre, nombre+"@gmail.com", "CONTRASEÑA"); //Estaba en rojo y ya vi cual era el erro
         }
         ListaUsuarios listaUsuarios = control.getUsuarios(); // Creando la lista de usuarios
         System.out.println("Lista de usuarios generada: \n"+listaUsuarios.mostrarUsuarios()); // Mostrando el contenido de la lista

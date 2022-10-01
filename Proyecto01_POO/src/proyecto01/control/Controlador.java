@@ -39,12 +39,12 @@ public class Controlador {
         return usuarios.agregarUsuario(unUsuario);
     }
 
-    public Usuario consultarUsuario(int id) {
+    public Usuario consultarUsuario(String id) {
         return usuarios.consultarUsuario(id);
     }
     
          
-    public boolean modificarUsuario(int id, String nombre, String correo, String contrasenna) {
+    public boolean modificarUsuario(String id, String nombre, String correo, String contrasenna) {
         Usuario elUsuario = usuarios.consultarUsuario(id);
         if (elUsuario != null) {
             elUsuario.setNombre(nombre);
