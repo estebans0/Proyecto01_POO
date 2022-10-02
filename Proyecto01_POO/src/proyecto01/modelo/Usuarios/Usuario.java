@@ -5,48 +5,59 @@ import java.util.Objects;
 public abstract class Usuario {
     
     // Atributos
-    protected String nombre;
     protected String id;
+    protected String nombre;
     protected String correo;
     protected String contrasenna;
+    protected String detalle;
 
-    // Métodos 
+    // Métodos
     public Usuario() {
         nombre = "No especificado";
         id = "No especificado";
         correo = "No especificado";
         contrasenna = "No especificado";
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre){
-        this.nombre = nombre;
+        detalle = "No especificado";
     }
 
     public String getId() {
         return id;
+    }
+    
+    public String getNombre() {
+        return nombre;
     }
 
     public String getCorreo() {
         return correo;
     }
 
-    public void setCorreo(String correo){
-        this.correo = correo;
-    }
-    
-
     public String getContrasenna() {
         return contrasenna;
     }
+    
+    public String getDetalle() {
+        return detalle;
+    }
+    
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    @Override
-    public String toString() {
-        return "Estudiante{" + "nombre=" + nombre + ", id=" + id + 
-                ", correo=" + correo + ", contrasenna=" + contrasenna + '}';
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public void setContrasenna(String contrasenna) {
+        this.contrasenna = contrasenna;
+    }
+    
+    public void setDetalle(String detalle) {
+        this.detalle = detalle;
     }
 
     @Override
@@ -69,4 +80,5 @@ public abstract class Usuario {
         final Usuario other = (Usuario) obj;
         return Objects.equals(this.id, other.id);
     }
+
 }

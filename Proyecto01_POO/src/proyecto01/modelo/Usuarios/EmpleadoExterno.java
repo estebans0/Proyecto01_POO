@@ -5,17 +5,19 @@ public class EmpleadoExterno extends Usuario{
     // Atributos
             
     // Métodos
-    public EmpleadoExterno() {
+    public EmpleadoExterno(String id, String nombre, String contrasenna, String correo, String detalle) {
         super();
-        nombre = "No especificado";
-        id = "EE0";
-        contrasenna = "No especificada";
+        this.id = id; // EE0
+        this.nombre = nombre;
+        this.contrasenna = contrasenna;
+        this.correo = correo;
+        this.detalle = detalle;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "nombre=" + nombre + ", id=" + id + 
-                ", contrasenna=" + contrasenna + '}';
+        return "EmpleadoExterno{" + "nombre=" + nombre + ", id=" + id + 
+                ", contrasenna=" + contrasenna + ", correo= " + correo + ", detalle= " + detalle + '}';
     }
 
 }

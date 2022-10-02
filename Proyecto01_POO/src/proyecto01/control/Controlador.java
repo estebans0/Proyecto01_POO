@@ -6,6 +6,9 @@
 package proyecto01.control;
 
 import proyecto01.modelo.Usuarios.Usuario;
+import proyecto01.modelo.Usuarios.Administrador;
+import proyecto01.modelo.Usuarios.EmpleadoExterno;
+import proyecto01.modelo.Usuarios.EmpleadoInterno;
 import proyecto01.modelo.Areas.Area;
 import proyecto01.modelo.Areas.NivelPiso;
 import proyecto01.modelo.Elementos.Elemento;
@@ -28,27 +31,41 @@ public class Controlador {
         return usuarios;
     }
     
-    public boolean agregarUsuario(int id, String nombre, String correo, String contrasenna){
-        
-        //Falta seleccionar el tipo de usuario
-        
-        Usuario unUsuario = new Usuario(id, nombre, correo, contrasenna);
-        return usuarios.agregarUsuario(unUsuario);
-    }
-
-    public Usuario consultarUsuario(String id) {
-        return usuarios.consultarUsuario(id);
+    public boolean agregarUsuario(String id, String nombre, String correo, String contrasenna, String detalle) {
+        String codID = usuarios.obtenerCodId(id);
+        if ("AD".equals(codID)) {
+            Usuario unUsuario = new Administrador(id, nombre, contrasenna);
+            return usuarios.agregarUsuario(unUsuario);
+        } else if ("EI".equals(codID)) {
+            Usuario unUsuario = new EmpleadoInterno(id, nombre, contrasenna, correo);
+            return usuarios.agregarUsuario(unUsuario);
+        } else if ("EE".equals(codID)) {
+            Usuario unUsuario = new EmpleadoExterno(id, nombre, contrasenna, correo, detalle);
+            return usuarios.agregarUsuario(unUsuario);
+        } else {
+            return false;
+        }
     }
     
-         
-    public boolean modificarUsuario(String id, String nombre, String correo, String contrasenna) {
+    public boolean eliminarUsuario(String id) {
+        return usuarios.eliminarUsuario(id);
+    }
+
+    public String mostrarEmpleadosTipo(int opcion) {
+        return usuarios.mostrarEmpleadosTipo(opcion);
+    }
+    
+    public boolean modificarUsuario(String id, String contrasenna) {
         Usuario elUsuario = usuarios.consultarUsuario(id);
         if (elUsuario != null) {
-            elUsuario.setNombre(nombre);
-            elUsuario.setCorreo(correo);
+            elUsuario.setContrasenna(contrasenna);
             return usuarios.modificarUsuario(elUsuario);
         }
         return false;
+    }
+    
+    public Usuario consultarUsuario(String id){
+        return usuarios.consultarUsuario(id);
     }
 
     public ListaAreas getAreas() {

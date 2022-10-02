@@ -11,13 +11,22 @@ public class ListaUsuarios {
         lista = new ArrayList<Usuario> ();
     }
     
+    public int size(){
+        return lista.size();
+    }
+    
+    public String obtenerCodId(String id) {
+        String codigo = "";
+        for (int i = 0; i < 2; i++) {
+            codigo += id.charAt(i);
+        }
+        return codigo;
+    }
+    
     public boolean agregarUsuario(Usuario unUsuario){
-        
-        // Falta forma de saber si soy el superusuario
-        
         for (int i = 0; i < lista.size(); i++) {
             Usuario usuarioActual = lista.get(i);
-            if (usuarioActual.getId() == unUsuario.getId() )
+            if (usuarioActual.getId().equals(unUsuario.getId()) )
             {
                 return false;
             }
@@ -26,29 +35,19 @@ public class ListaUsuarios {
         return true;
     }
     
-    public boolean consultarExisteUsuario(String id){
-        int pos = 0;
-        while (pos < lista.size()){
-            Usuario usuarioActual = lista.get(pos);
-            if (usuarioActual.getId().equalsIgnoreCase(id)) 
-                return true;
-            else
-                pos += 1;
+    public boolean eliminarUsuario(String id){
+        Usuario unUsuario = consultarUsuario(id);
+        if (unUsuario != null){
+            lista.remove(unUsuario);
+            return true;
         }
         return false;
     }
     
-    public Usuario consultarUsuario(String id){
-        for (Usuario usuario : lista) 
-            if (usuario.getId().equalsIgnoreCase(id)) //Estaba en rojo y ya vi cual era el erro ;D
-                return usuario;
-        return null;    
-    }
-
     public boolean modificarUsuario(Usuario unUsuario){
         for (int i = 0; i < lista.size(); i++) {
             Usuario actual = lista.get(i);
-            if (actual.getId() == unUsuario.getId() ){
+            if (actual.getId().equals(unUsuario.getId()) ){
                 lista.set(i, unUsuario);
                 return true;
             }
@@ -56,13 +55,29 @@ public class ListaUsuarios {
         return false;
     }
     
-    public boolean eliminarUsuario(String id){
-            Usuario unUsuario = consultarUsuario(id);
-        if (unUsuario != null){
-            lista.remove(unUsuario);
-            return true;
+    public Usuario consultarUsuario(String id){
+        for (Usuario usuario : lista) 
+            if (usuario.getId().equals(id))
+                return usuario;
+        return null;
+    }
+
+    public String mostrarEmpleadosTipo(int opcion) {
+        String respuesta = "";
+        for (Usuario usuario : lista) {
+            String codID = obtenerCodId(usuario.getId());
+            if (opcion == 0) {
+                if ("EI".equals(codID))
+                    respuesta += usuario.toString() + "\n";
+            } else if (opcion == 1) {
+                if ("EE".equals(codID))
+                    respuesta += usuario.toString() + "\n";
+            } else {
+                if ("EE".equals(codID) || "EI".equals(codID))
+                    respuesta += usuario.toString() + "\n";
+            }
         }
-        return false;    
+        return respuesta;
     }
     
     public String mostrarUsuarios() {
@@ -71,5 +86,5 @@ public class ListaUsuarios {
             respuesta += usuario.toString() + "\n";
         }
         return respuesta;
-    }   
+    }
 }

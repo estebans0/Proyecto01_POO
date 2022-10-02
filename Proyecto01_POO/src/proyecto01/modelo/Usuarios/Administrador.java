@@ -5,17 +5,16 @@ public class Administrador extends Usuario {
     // Atributos
             
     // Métodos
-    public Administrador() {
+    public Administrador(String id, String nombre, String contrasenna) {
         super();
-        nombre = "Administador";
-        id = "AD0";
-        contrasenna = "2345";
+        this.id = id; // AD0
+        this.nombre = nombre;
+        this.contrasenna = contrasenna;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "nombre=" + nombre + ", id=" + id + 
-                ", contrasenna=" + contrasenna + '}';
+        return "Administrador{" + "nombre= " + nombre + ", id= " + id + ", contrasenna= " + contrasenna + '}';
     }
     
 }
