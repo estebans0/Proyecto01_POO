@@ -1,4 +1,4 @@
-package proyecto01.modelo;
+package proyecto01.modelo.Usuarios;
 
 public class EmpleadoInterno extends Usuario{
     

@@ -1,6 +1,6 @@
 package proyecto01.control;
 
-import proyecto01.modelo.Usuario;
+import proyecto01.modelo.Usuarios.Usuario;
 import java.util.ArrayList;
 
 public class ListaUsuarios {

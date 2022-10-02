@@ -5,13 +5,10 @@
  */
 package proyecto01.control;
 
-import proyecto01.modelo.Usuario;
+import proyecto01.modelo.Usuarios.Usuario;
 import proyecto01.modelo.Areas.Area;
 import proyecto01.modelo.Areas.NivelPiso;
 import proyecto01.modelo.Elementos.Elemento;
-
-import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  *

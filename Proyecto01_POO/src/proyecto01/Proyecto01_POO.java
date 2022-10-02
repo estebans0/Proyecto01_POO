@@ -5,8 +5,6 @@
  */
 package proyecto01;
 
-import proyecto01.control.ListaUsuarios;
-import proyecto01.modelo.Usuario;
 import proyecto01.modelo.Areas.NivelPiso;
 import proyecto01.modelo.Elementos.ComponenteElemento;
 import proyecto01.modelo.Elementos.Elemento;
