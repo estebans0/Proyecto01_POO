@@ -45,14 +45,14 @@ public class Proyecto01_POO {
         
 
 
-//        control.agregarArea("AP", "AreaPruba", "Esta es una area de prueba", NivelPiso.Primer);
-//        ComponenteElemento c = new ComponenteElemento("Componente Elemento prueba", "CEA", "ubicado en areaPrueba");
-//        ListaComponentes lc = new ListaComponentes();
-//        lc.agregarComponente(c);
-//        control.agregarElementoArea("AP",new Elemento("ApE", "ElementPrueba", "Elemento de prueba",EstadoElemento.Aceptable,lc, "Ubicado en AreaPrueba") );
-//        
-//         //System.out.println(control.mostrarAreas());
-//         System.out.println(control.mostrarElementos());
+        control.agregarArea("AP", "AreaPruba", "Esta es una area de prueba", NivelPiso.Primer);
+        ComponenteElemento c = new ComponenteElemento("Componente Elemento prueba", "CEA", "ubicado en areaPrueba");
+        ListaComponentes lc = new ListaComponentes();
+        lc.agregarComponente(c);
+        control.agregarElementoArea("AP",new Elemento("ApE", "ElementPrueba", "Elemento de prueba",EstadoElemento.Aceptable,lc, "Ubicado en AreaPrueba") );
+        
+         //System.out.println(control.mostrarAreas());
+         System.out.println(control.mostrarElementos());
 
         // Prueba de usuarios
         control.agregarUsuario("AD0", "Melissa", "meli@gmail.com", "123456", "La admin");
