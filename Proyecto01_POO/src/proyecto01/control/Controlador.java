@@ -6,6 +6,7 @@
 package proyecto01.control;
 
 import proyecto01.modelo.Usuarios.Usuario;
+import proyecto01.modelo.Usuarios.SuperUsuario;
 import proyecto01.modelo.Usuarios.Administrador;
 import proyecto01.modelo.Usuarios.EmpleadoExterno;
 import proyecto01.modelo.Usuarios.EmpleadoInterno;
@@ -26,6 +27,14 @@ public class Controlador {
         usuarios = new ListaUsuarios();
         areas = new ListaAreas(); 
     }
+    
+    public boolean logInEmpleados(String correo, String contrasenna){
+        return usuarios.consultarLogInEmpleados(correo, contrasenna);
+    }
+    
+    public boolean logInAdministracion(String id, String contrasenna){
+        return usuarios.consultarLogInAdministracion(id, contrasenna);
+    }
 
     public ListaUsuarios getUsuarios() {
         return usuarios;
@@ -40,6 +49,41 @@ public class Controlador {
             Usuario unUsuario = new EmpleadoInterno(id, nombre, contrasenna, correo);
             return usuarios.agregarUsuario(unUsuario);
         } else if ("EE".equals(codID)) {
+            Usuario unUsuario = new EmpleadoExterno(id, nombre, contrasenna, correo, detalle);
+            return usuarios.agregarUsuario(unUsuario);
+        } else {
+            return false;
+        }
+    }
+    
+    public boolean agregarSU() {
+        Usuario unUsuario = new SuperUsuario();
+        return usuarios.agregarUsuario(unUsuario);
+    }
+    
+    public boolean agregarAD(String id, String nombre, String contrasenna) {
+        String codID = usuarios.obtenerCodId(id);
+        if ("AD".equals(codID)) {
+            Usuario unUsuario = new Administrador(id, nombre, contrasenna);
+            return usuarios.agregarUsuario(unUsuario);
+        } else {
+            return false;
+        }
+    }
+    
+    public boolean agregarEI(String id, String nombre, String correo, String contrasenna) {
+        String codID = usuarios.obtenerCodId(id);
+        if ("EI".equals(codID)) {
+            Usuario unUsuario = new EmpleadoInterno(id, nombre, contrasenna, correo);
+            return usuarios.agregarUsuario(unUsuario);
+        } else {
+            return false;
+        }
+    }
+    
+    public boolean agregarEE(String id, String nombre, String correo, String contrasenna, String detalle) {
+        String codID = usuarios.obtenerCodId(id);
+        if ("EE".equals(codID)) {
             Usuario unUsuario = new EmpleadoExterno(id, nombre, contrasenna, correo, detalle);
             return usuarios.agregarUsuario(unUsuario);
         } else {

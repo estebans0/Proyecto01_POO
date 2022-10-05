@@ -55,6 +55,7 @@ public class Proyecto01_POO {
          System.out.println(control.mostrarElementos());
 
         // Prueba de usuarios
+        control.agregarSU();
         control.agregarUsuario("AD0", "Melissa", "meli@gmail.com", "123456", "La admin");
         control.agregarUsuario("EI0", "Esteban", "esteban@gmail.com", "2345", "El interno");
         control.agregarUsuario("EE0", "Jocelyn", "joss@gmail.com", "6789", "La externa");
@@ -62,10 +63,7 @@ public class Proyecto01_POO {
         ListaUsuarios listaUsuarios = control.getUsuarios(); // Creando la lista de usuarios
         
         System.out.println("Lista de usuarios generada: \n"+listaUsuarios.mostrarUsuarios()); // Mostrando el contenido de la lista
-        
-        //control.eliminarUsuario("EI0"); //Eliminar usuario
-        //System.out.println("Lista de usuarios después de elimnar a EI0: \n"+listaUsuarios.mostrarUsuarios()); // Mostrando el contenido de la lista
-        
+                
         System.out.println("Voy a consultar a los usuarios de tipo empleados internos: ");
         System.out.println(control.mostrarEmpleadosTipo(0)); // 0=EI, 1=EE, 2=Todos los empleados
         
@@ -76,5 +74,8 @@ public class Proyecto01_POO {
         System.out.println("Voy a modificar a mi empleado EI0: ");
         control.modificarUsuario(EI.getId(), "12345678"); // Modifico a mi empleado
         System.out.println(EI);
+        
+        System.out.println("\nVoy a ingresar con mi SuperUsuario:");
+        System.out.println("Resultado de mi logIn: " + control.logInAdministracion("SU0", "1234"));
     }
 }

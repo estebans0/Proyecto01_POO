@@ -4,17 +4,24 @@
  */
 package proyecto01.vista;
 
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import proyecto01.control.Controlador;
+import proyecto01.modelo.Usuarios.Usuario;
 /**
  *
  * @author esteb
  */
 public class Ventana extends javax.swing.JFrame {
+    
+    private Controlador control;
 
     /**
      * Creates new form Ventana
      */
     public Ventana() {
         initComponents();
+        control = new Controlador();
     }
 
     /**
@@ -29,6 +36,7 @@ public class Ventana extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         logIn = new javax.swing.JPanel();
+        funcionSU = new javax.swing.JButton();
         cambioContrasenna = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
@@ -54,6 +62,17 @@ public class Ventana extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtIdSU = new javax.swing.JTextPane();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txtContrasennaSU = new javax.swing.JTextPane();
+        ingresarSU = new javax.swing.JButton();
+        lblMensaje = new javax.swing.JLabel();
+        btnAgregarSU = new javax.swing.JButton();
         panelIzquierdo = new javax.swing.JPanel();
         introduceContrasenna = new javax.swing.JPasswordField();
         indicadorContrasenna = new javax.swing.JLabel();
@@ -68,15 +87,28 @@ public class Ventana extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        funcionSU.setText("Agregar Usuario");
+        funcionSU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funcionSUActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout logInLayout = new javax.swing.GroupLayout(logIn);
         logIn.setLayout(logInLayout);
         logInLayout.setHorizontalGroup(
             logInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 880, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logInLayout.createSequentialGroup()
+                .addContainerGap(613, Short.MAX_VALUE)
+                .addComponent(funcionSU)
+                .addGap(151, 151, 151))
         );
         logInLayout.setVerticalGroup(
             logInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logInLayout.createSequentialGroup()
+                .addContainerGap(327, Short.MAX_VALUE)
+                .addComponent(funcionSU)
+                .addGap(118, 118, 118))
         );
 
         jTabbedPane2.addTab("Log In", logIn);
@@ -123,7 +155,7 @@ public class Ventana extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Crear un nuevo usuario");
+        jLabel2.setText("Agregar un nuevo usuario");
 
         jLabel3.setText("Tipo de usuario:");
 
@@ -302,6 +334,89 @@ public class Ventana extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Empleados", empleado);
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel9.setText("Ingrese como SuperUsuario");
+
+        jLabel10.setText("Ingrese su id:");
+
+        jLabel11.setText("Ingrese su contraseña:");
+
+        jScrollPane2.setViewportView(txtIdSU);
+
+        jScrollPane5.setViewportView(txtContrasennaSU);
+
+        ingresarSU.setText("Ingresar");
+        ingresarSU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ingresarSUActionPerformed(evt);
+            }
+        });
+
+        lblMensaje.setForeground(new java.awt.Color(153, 0, 0));
+
+        btnAgregarSU.setText("Agregar SU");
+        btnAgregarSU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarSUActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(ingresarSU)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel11)
+                                    .addGap(52, 52, 52)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                                        .addComponent(jScrollPane2))))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(120, 120, 120)
+                        .addComponent(btnAgregarSU))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(193, 193, 193)
+                        .addComponent(lblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(231, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(btnAgregarSU))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabel10)
+                        .addGap(21, 21, 21))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel11)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addComponent(ingresarSU)
+                .addGap(18, 18, 18)
+                .addComponent(lblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(185, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("SuperUsuario", jPanel2);
+
         jPanel1.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 880, 500));
 
         panelIzquierdo.setBackground(new java.awt.Color(153, 255, 153));
@@ -420,6 +535,24 @@ public class Ventana extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ingresarContraActionPerformed
 
+    private void funcionSUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcionSUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_funcionSUActionPerformed
+
+    private void ingresarSUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarSUActionPerformed
+        String idSU = txtIdSU.getText();
+        String contrasennaSU = txtContrasennaSU.getText();
+        boolean resultado = control.logInAdministracion(idSU, contrasennaSU);
+        if (resultado == true)
+            lblMensaje.setText("Ha ingresado a su perfil exitosamente");
+        else
+            lblMensaje.setText("Sus credenciales son incorrectos. Intentelo nuevamente");
+    }//GEN-LAST:event_ingresarSUActionPerformed
+
+    private void btnAgregarSUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarSUActionPerformed
+        control.agregarSU();
+    }//GEN-LAST:event_btnAgregarSUActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -458,11 +591,14 @@ public class Ventana extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CrearUsuario;
     private javax.swing.JPanel administrador;
+    private javax.swing.JButton btnAgregarSU;
     private javax.swing.JPanel cambioContrasenna;
     private javax.swing.JPanel empleado;
+    private javax.swing.JButton funcionSU;
     private javax.swing.JLabel indicadorContrasenna;
     private javax.swing.JLabel indicadorCorreo;
     private javax.swing.JButton ingresarContra;
+    private javax.swing.JButton ingresarSU;
     private javax.swing.JPasswordField introduceContrasenna;
     private javax.swing.JTextPane introduceCorreo;
     private javax.swing.JButton jButton1;
@@ -472,6 +608,8 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -479,18 +617,25 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel lblMensaje;
     private javax.swing.JPanel logIn;
     private javax.swing.JPanel panelIzquierdo;
     private javax.swing.JPanel panelSuperior;
+    private javax.swing.JTextPane txtContrasennaSU;
+    private javax.swing.JTextPane txtIdSU;
     // End of variables declaration//GEN-END:variables
 }

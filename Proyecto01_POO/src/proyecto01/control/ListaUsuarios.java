@@ -61,6 +61,20 @@ public class ListaUsuarios {
                 return usuario;
         return null;
     }
+    
+    public boolean consultarLogInEmpleados(String correo, String contrasenna){
+        for (Usuario usuario : lista)
+            if (usuario.getCorreo().equals(correo) && usuario.getContrasenna().equals(contrasenna))
+                return true;
+        return false;
+    }
+    
+    public boolean consultarLogInAdministracion(String id, String contrasenna){
+        for (Usuario usuario : lista)
+            if (usuario.getId().equals(id) && usuario.getContrasenna().equals(contrasenna))
+                return true;
+        return false;
+    }
 
     public String mostrarEmpleadosTipo(int opcion) {
         String respuesta = "";
